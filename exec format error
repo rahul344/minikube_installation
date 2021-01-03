@@ -1,0 +1,26 @@
+Fixed - bash: /usr/local/bin/kubectl: cannot execute binary file: Exec format error | Install Kubectl on Linux
+ubuntu@ip-172-31-51-139:~$ kubectl get nodes
+-bash: /usr/local/bin/kubectl: cannot execute binary file: Exec format error
+
+FIX
+
+Download the linux OS based package. 
+
+ubuntu@ip-172-31-51-139:/tmp$ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 51.7M  100 51.7M    0     0  58.2M      0 --:--:-- --:--:-- --:--:-- 58.1M
+
+
+ubuntu@ip-172-31-51-139:/tmp$ chmod +x kubectl
+
+ubuntu@ip-172-31-51-139:/tmp$ ls -ltrh
+total 52M
+-rwxrwxr-x 1 ubuntu ubuntu  52M Jun  6 16:31 kubectl
+
+ubuntu@ip-172-31-51-139:/tmp$ sudo mv kubectl /usr/local/bin/
+
+ubuntu@ip-172-31-51-139:/tmp$ kubectl get nodes
+The connection to the server localhost:8080 was refused - did you specify the right host or port?
+
+Work as expected. 
