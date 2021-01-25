@@ -1,0 +1,10 @@
+root@rahulsingh:~# kubectl get nodes
+Unable to connect to the server: x509: certificate is valid for 192.168.1.100, 10.96.0.1, 127.0.0.1, 10.0.0.1, not 192.168.0.109
+root@rahulsingh:~# unset KUBECONFIG
+root@rahulsingh:~# export KUBECONFIG=/etc/kubernetes/admin.conf
+root@rahulsingh:~# kubectl get nodes
+NAME         STATUS   ROLES                  AGE   VERSION
+rahulsingh   Ready    control-plane,master   10m   v1.20.2
+root@rahulsingh:~#
+root@rahulsingh:~#
+root@rahulsingh:~#
